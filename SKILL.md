@@ -1,6 +1,6 @@
 ---
-name: meditation
-description: "Multi-layered insight generator that processes any topic through increasing depths of meta-observation. Use when the user says /meditation, 'meditate on this', 'go deeper', 'insight generator', 'slow processing', 'enhanced processing', or when they want to uncover non-obvious insights about a decision, strategy, framework, or problem. Also use when the user asks for depth levels or layered analysis."
+name: meditate
+description: "Multi-layered insight generator that processes any topic through increasing depths of meta-observation. Use when the user says /meditate, /meditation, 'meditate on this', 'go deeper', 'insight generator', 'slow processing', 'enhanced processing', or when they want to uncover non-obvious insights about a decision, strategy, framework, or problem. Also use when the user asks for depth levels or layered analysis."
 ---
 
 # Meditation — Layered Meta-Analysis Skill

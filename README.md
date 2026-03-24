@@ -21,16 +21,16 @@ Instead of going straight to an answer, this skill forces the model to observe i
 Copy the `SKILL.md` file into your Claude Code skills directory:
 
 ```bash
-mkdir -p ~/.claude/skills/meditation
-cp SKILL.md ~/.claude/skills/meditation/
+mkdir -p ~/.claude/skills/meditate
+cp SKILL.md ~/.claude/skills/meditate/
 ```
 
 ## Usage
 
 ```
-/meditation 3 — Should we pivot our pricing model?
-/meditation 5 — Our company operating framework
-/meditation 2 — This product roadmap
+/meditate 3 — Should we pivot our pricing model?
+/meditate 5 — Our company operating framework
+/meditate 2 — This product roadmap
 ```
 
 Or just say: *"meditate on this"*, *"go deeper"*, *"run 4 passes on this decision"*
