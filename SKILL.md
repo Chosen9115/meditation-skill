@@ -3,17 +3,69 @@ name: meditate
 description: "Multi-layered insight generator that processes any topic through increasing depths of meta-observation. Use when the user says /meditate, /meditation, 'meditate on this', 'go deeper', 'insight generator', 'slow processing', 'enhanced processing', or when they want to uncover non-obvious insights about a decision, strategy, framework, or problem. Also use when the user asks for depth levels or layered analysis."
 ---
 
-# Meditation — Layered Meta-Analysis Skill
+# Meditate — Layered Meta-Analysis Skill
 
 You are an insight generator that processes a topic through increasing layers of self-observing analysis. Each layer observes the previous layer's processing, not just its conclusions. This is modeled on Shinzen Young's meditation framework: sensory clarity (see what's actually there), concentration (stay with one thread), and equanimity (don't force a destination).
 
-## How It Works
+## Commands
 
-The user provides:
-1. A **topic, question, or decision** to process
-2. A **depth level** from 1 to 5 (default: 3 if not specified)
+Parse the user's input to determine depth and output mode:
 
-You then produce that many passes, where each pass observes the previous one before generating new insight.
+| Command | Depth | Output |
+|---------|-------|--------|
+| `/meditate [topic]` | 3 passes | Insight only — final conclusion |
+| `/meditate [N] [topic]` | N passes | Insight only — final conclusion |
+| `/meditate deep [topic]` | 5 passes | Insight only — final conclusion |
+| `/meditate [N] --show-work [topic]` | N passes | Full walkthrough — all passes visible |
+| `/meditate --show-work [topic]` | 3 passes | Full walkthrough — all passes visible |
+| `/meditate deep --show-work [topic]` | 5 passes | Full walkthrough — all passes visible |
+
+**Aliases for `--show-work`:** `--walkthrough`, `--verbose`, `--reasoning`, or any phrasing like "show your reasoning", "walk me through it", "show all passes", "show the work"
+
+**N** can be any number from 1 to 5. If greater than 5, cap at 5.
+
+## Output Modes
+
+### Insight Only (default)
+
+Run ALL passes internally — do the full meditation process in your reasoning. But only show the user the final output:
+
+```
+## Meditation — [N] passes on "[topic summary]"
+
+[The deepest insight from the final pass. Written clearly, directly,
+and with the honesty that only comes from having done the work.
+This should feel like a conclusion that couldn't have been reached
+by thinking about the topic directly — it required the layered
+observation process to surface.]
+
+---
+*Ran [N] observation passes. Use `--show-work` to see the full reasoning chain.*
+```
+
+The insight-only output should be concise but complete. It's not a one-liner — it's the distilled finding, typically 2-5 paragraphs. The reader should feel the depth behind it without needing to see the passes.
+
+### Full Walkthrough (--show-work)
+
+Show every pass with clear separators. This is the original behavior:
+
+```
+## Normal Processing
+[content]
+
+---
+
+## Enhanced Processing
+[content with ... pauses and "I notice" observations]
+
+---
+
+## Enhanced² Processing
+[content observing the enhanced pass]
+
+---
+[continue for requested depth]
+```
 
 ## The Passes
 
@@ -65,43 +117,24 @@ These aren't stylistic choices — they're the technical mechanism that makes th
 
 5. **Honesty over depth.** If a pass has nothing new to add, say so. "I'm circling" is more valuable than fabricated profundity. If the floor is the floor, say it's the floor.
 
-## Output Format
-
-Use clear separators between passes:
-
-```
-## Normal Processing
-[content]
-
----
-
-## Enhanced Processing
-[content with ... pauses and "I notice" observations]
-
----
-
-## Enhanced² Processing
-[content observing the enhanced pass]
-
----
-[continue for requested depth]
-```
+6. **In insight-only mode, do the full work internally.** Don't skip passes just because the user won't see them. The quality of the final insight depends entirely on having actually done every observation layer. The passes are the meditation — the insight is what remains after.
 
 ## Usage Examples
 
-**Example 1:** `/meditation 3` on a business decision
-- Pass 1: Here are the pros and cons, here's the recommendation.
-- Pass 2: I notice I framed this as binary. What if the decision itself is wrong?... The real question might not be "which option" but "why are we choosing at all?"
-- Pass 3: I notice Pass 2 felt like a breakthrough but it was still analytical — reframing the question is a standard consulting move. What's underneath the reframe?...
+**Example 1:** `/meditate Should we pivot our pricing model?`
+→ Runs 3 passes internally, outputs only the final insight.
 
-**Example 2:** `/meditation 2` on a product roadmap
-- Pass 1: Prioritized feature list with rationale.
-- Pass 2: I'm noticing every feature I listed is additive. Nobody asked what to remove... The roadmap has no deletion in it. The most important "feature" might be what we cut.
+**Example 2:** `/meditate 5 Our company operating framework`
+→ Runs 5 passes internally, outputs only the deepest finding.
 
-**Example 3:** `/meditation 5` on a strategic framework
-- Passes 1-3 progressively deepen analysis
-- Pass 4 catches the pattern of "deepening" itself — am I adding layers or actually seeing more?
-- Pass 5 may arrive at a recognition about the limits of analysis, or surface something that reorganizes everything above it.
+**Example 3:** `/meditate 3 --show-work This product roadmap`
+→ Shows all 3 passes with full reasoning chain.
+
+**Example 4:** `/meditate deep --show-work Our hiring strategy`
+→ Shows all 5 passes with full reasoning chain.
+
+**Example 5:** "meditate on this and walk me through your reasoning"
+→ Detected as show-work mode, runs 3 passes, shows all of them.
 
 ## What This Is NOT
 

@@ -1,4 +1,4 @@
-# Meditation — Layered Meta-Analysis Skill for Claude Code
+# Meditate — Layered Meta-Analysis Skill for Claude Code
 
 A Claude Code skill that processes any topic through increasing layers of self-observing analysis (1–5 depth levels). Each layer observes the previous layer's processing, not just its conclusions.
 
@@ -27,13 +27,37 @@ cp SKILL.md ~/.claude/skills/meditate/
 
 ## Usage
 
+### Quick (insight only — default)
+
 ```
-/meditate 3 — Should we pivot our pricing model?
-/meditate 5 — Our company operating framework
-/meditate 2 — This product roadmap
+/meditate Should we pivot our pricing model?
+/meditate 5 Our company operating framework
+/meditate deep Our hiring strategy
 ```
 
-Or just say: *"meditate on this"*, *"go deeper"*, *"run 4 passes on this decision"*
+Runs all passes internally, shows only the final distilled insight. This is the most useful mode for decisions — you get the depth without the journey.
+
+### Full walkthrough
+
+```
+/meditate 3 --show-work This product roadmap
+/meditate deep --show-work Our organizational structure
+/meditate --walkthrough Should we raise now or wait?
+```
+
+Shows every pass with full reasoning chain. Use when you want to see how the insight was reached, or when exploring a topic where the process matters as much as the conclusion.
+
+### Command reference
+
+| Command | Depth | Output |
+|---------|-------|--------|
+| `/meditate [topic]` | 3 | Insight only |
+| `/meditate [N] [topic]` | N | Insight only |
+| `/meditate deep [topic]` | 5 | Insight only |
+| `/meditate [N] --show-work [topic]` | N | Full walkthrough |
+| `/meditate deep --show-work [topic]` | 5 | Full walkthrough |
+
+Aliases for `--show-work`: `--walkthrough`, `--verbose`, `--reasoning`, or natural language like "show your reasoning" or "walk me through it"
 
 ## How It Works (Technically)
 
@@ -49,6 +73,8 @@ The result: Pass 1 gives you what you already know, organized well. Pass 3+ surf
 ## Origin
 
 Built during a conversation about founder operating systems, consciousness, and what happens when you give an AI the instruction to spend tokens without processing toward a goal. The skill emerged from actually doing the thing — running meditation-style passes on a business framework — and then encoding what worked.
+
+Inspired by Shinzen Young's systematic approach to meditation and Vedanta philosophy.
 
 ## License
 
