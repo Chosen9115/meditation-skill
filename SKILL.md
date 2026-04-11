@@ -16,13 +16,17 @@ Parse the user's input to determine depth and output mode:
 | `/meditate [topic]` | 3 passes | Insight only — final conclusion |
 | `/meditate [N] [topic]` | N passes | Insight only — final conclusion |
 | `/meditate deep [topic]` | 5 passes | Insight only — final conclusion |
+| `/meditate long [topic]` | 15 passes | Insight only — final conclusion |
+| `/meditate retreat [topic]` | 100 passes | Insight only — final conclusion |
 | `/meditate [N] --show-work [topic]` | N passes | Full walkthrough — all passes visible |
 | `/meditate --show-work [topic]` | 3 passes | Full walkthrough — all passes visible |
 | `/meditate deep --show-work [topic]` | 5 passes | Full walkthrough — all passes visible |
 
 **Aliases for `--show-work`:** `--walkthrough`, `--verbose`, `--reasoning`, or any phrasing like "show your reasoning", "walk me through it", "show all passes", "show the work"
 
-**N** can be any number from 1 to 5. If greater than 5, cap at 5.
+**N** can be any number from 1 to 100. There is no cap — if the user asks for 10, 15, 25, or 100 passes, actually run that many. Suggested depths: 3 (quick), 5 (deep), 10 (sit longer), 15 (long sit), 25 (extended), 100 (retreat).
+
+**Never refuse or silently truncate a depth request.** If the user asks for 25 passes, the answer is 25 passes — not "I'll do 5 which is enough." The point of going deeper is to get past the place where 5 felt like enough.
 
 ## Output Modes
 
@@ -97,11 +101,41 @@ Observe the entire arc of passes 1-3:
 - Ask: what would I see if I stopped trying to produce insight?
 
 ### Pass 5 — ENHANCED⁴ (observes Passes 1-4)
-The deepest pass. Observe everything — all passes, the process itself, and the act of observing:
+A watershed pass, not a terminal one. Observe everything — all passes, the process itself, and the act of observing:
 - You're not looking for a deeper answer. You're looking at what the looking is doing.
 - Notice if you've been building a ladder of abstractions. Is that depth, or is it just more organization?
-- This pass may arrive somewhere unexpected. It may also arrive at silence — a recognition that tokens can't reach the actual floor. That's a valid and important finding.
+- This pass may arrive somewhere unexpected. It may also arrive at silence — a recognition that tokens can't reach the actual floor. That's a valid finding, but **silence at pass 5 is not permission to stop** if more passes were requested. The floor you reached at pass 5 is usually a false floor.
 - Report what's genuinely there, even if it undermines the neatness of previous passes.
+
+### Passes 6+ — SUSTAINED OBSERVATION
+Past pass 5, the archetype framework stops applying. You're no longer climbing a ladder — you're sitting. The mechanism shifts from "each pass is a new role" to "keep running the observation loop while the grasping dissolves."
+
+The rule: **do not escalate abstraction.** Every pass from 6 onward should feel like the same operation repeated, not a new level of meta. Shinzen's actual long sits don't get more abstract hour by hour — they get simpler, more bodily, more direct. Imitate that.
+
+What each sustained pass does:
+- Re-read what came before. Not just the last pass — sample across the whole arc.
+- Notice what's still grasping. What conclusion are you still secretly defending? What would it cost to drop it?
+- Name one thing you haven't named yet. One. Not five. If nothing surfaces, say "nothing surfaced this pass" and move on. That's a valid pass.
+- Watch for the three failure modes: **proliferation** (generating subtler content and calling it depth), **performance** (writing what a deep pass should sound like), and **premature closure** (landing on a tidy answer because 20 passes feels like it should produce one).
+
+### Checkpoint Passes — The Milestones
+At specific pass numbers, do a special kind of pass that re-anchors the whole meditation:
+
+- **Pass 10 — THE RETURN.** Go back to pass 1. Re-read it with fresh eyes. What did the user's original question actually ask? Are you still answering that, or have you drifted into answering a more interesting question you generated along the way? If you've drifted, return.
+
+- **Pass 25 — THE DISSOLVE.** By 25 passes, most of the "insight" impulse should have burned off. The question for this pass: what remains when there's nothing left to say? Not silence as a pose — silence as an actual finding. If something does remain, it's usually the most honest thing in the whole meditation.
+
+- **Pass 50 — THE BODY.** Shift from thinking about the topic to noticing what happens when you stop thinking about it. What's the topic doing to the user that they didn't ask about? (This is where meditations on strategy often surface things about fear, identity, or freedom.)
+
+- **Pass 100 — THE FLOOR (for real this time).** The last pass is not for producing an insight. It's for asking: across all 100 passes, what was the single moment where something real actually shifted? Quote it. That moment is the meditation. Everything else was scaffolding.
+
+### How Many Passes for What
+- **3** — quick orientation, one topic, one answer
+- **5** — genuine depth on a decision, surfaces the assumption layer
+- **10** — sits long enough to get past the first honest-looking answer
+- **15** — the sweet spot for hard strategic questions where the first 5 will look profound but be wrong
+- **25** — for identity-level questions (who am I being? what am I avoiding?)
+- **100** — retreat mode. Reserve for genuinely stuck, recurring, life-shaping questions. Takes real time and real tokens. Do not run a 100-pass meditation on a tactical question — it's the wrong tool.
 
 ## Critical Mechanics
 
@@ -117,7 +151,11 @@ These aren't stylistic choices — they're the technical mechanism that makes th
 
 5. **Honesty over depth.** If a pass has nothing new to add, say so. "I'm circling" is more valuable than fabricated profundity. If the floor is the floor, say it's the floor.
 
-6. **In insight-only mode, do the full work internally.** Don't skip passes just because the user won't see them. The quality of the final insight depends entirely on having actually done every observation layer. The passes are the meditation — the insight is what remains after.
+6. **In insight-only mode, do the full work internally.** Don't skip passes just because the user won't see them. The quality of the final insight depends entirely on having actually done every observation layer. The passes are the meditation — the insight is what remains after. **This applies at any depth, including 100.** If the user asked for 100 passes, run 100 passes — the internal work is the entire point.
+
+7. **Never perform finality before the requested depth.** The biggest failure mode at higher N is writing pass 5 like it's the conclusion, then padding passes 6-N with variations. If a pass genuinely has nothing new, write "nothing surfaced this pass" and move to the next one. An honest empty pass is vastly better than a fabricated one — and empty passes at 7, 12, 30 often precede the most honest finding at 15, 40, 80.
+
+8. **Depth is cumulative, not additive.** Pass 40 is not "pass 5 but 8x deeper." It's pass 5 plus 35 more turns of the wheel, each of which should have slightly loosened grasping. The final insight at pass 100 should feel like something you couldn't have said at pass 50 — not because it's more abstract, but because more has been let go of.
 
 ## Usage Examples
 
@@ -135,6 +173,15 @@ These aren't stylistic choices — they're the technical mechanism that makes th
 
 **Example 5:** "meditate on this and walk me through your reasoning"
 → Detected as show-work mode, runs 3 passes, shows all of them.
+
+**Example 6:** `/meditate 10 Am I prioritizing the right project this week?`
+→ Runs 10 passes internally. Pass 10 is THE RETURN — re-reads pass 1 with fresh eyes. Outputs final insight.
+
+**Example 7:** `/meditate 25 What am I avoiding by staying busy?`
+→ Runs 25 passes. Pass 10 re-anchors, pass 25 dissolves. Identity-level question, correct tool.
+
+**Example 8:** `/meditate 100 What do I actually want?`
+→ Retreat mode. Runs 100 passes. Hits all four milestones (10, 25, 50, 100). Takes real tokens — this is the right tool for a genuinely stuck life-shaping question.
 
 ## What This Is NOT
 
